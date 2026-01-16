@@ -12,7 +12,8 @@ body,
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 body {

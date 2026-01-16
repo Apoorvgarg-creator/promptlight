@@ -166,6 +166,14 @@ pub fn run() {
         ])
         .setup(|app| {
             let window = app.get_webview_window("main").unwrap();
+
+            // Set webview background to transparent for proper window transparency
+            #[cfg(target_os = "macos")]
+            {
+                use tauri::window::Color;
+                let _ = window.set_background_color(Some(Color(0, 0, 0, 0)));
+            }
+
             let window_clone = window.clone();
 
             // Register default hotkey: Cmd+Shift+Space
